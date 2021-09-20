@@ -13205,7 +13205,7 @@ a.anchor-link {
 <h1 id="&#216;VELSE-1:-Simpel-teksth&#229;ndtering">&#216;VELSE 1: Simpel teksth&#229;ndtering<a class="anchor-link" href="#&#216;VELSE-1:-Simpel-teksth&#229;ndtering">&#182;</a></h1><p>I øvelserne i dag skal i arbejde med et datasæt bestående af kommentarer fra reddit. Alle kommentarer er taget fra posts på r/denmark (reddit.com/r/denmark) fra 1/3-8/3 2021.</p>
 <ol>
 <li>Indlæs data som en pandas data frame<ul>
-<li>Link til data: <a href="https://raw.githubusercontent.com/CALDISS-AAU/course_ndms-I/master/datasets/reddit_rdenmark-comments_01032021-08032021_long.csv">https://raw.githubusercontent.com/CALDISS-AAU/course_ndms-I/master/datasets/reddit_rdenmark-comments_01032021-08032021_long.csv</a></li>
+<li>Link til data: <a href="https://raw.githubusercontent.com/CALDISS-AAU/course_ddf/master/datasets/reddit_rdenmark-comments_01032021-08032021_long.csv">https://raw.githubusercontent.com/CALDISS-AAU/course_ddf/master/datasets/reddit_rdenmark-comments_01032021-08032021_long.csv</a></li>
 </ul>
 </li>
 <li>Dan et subset bestående af alle kommentarer, der nævner "menneskerettigheder" (kommentarteksten er i kolonnen <code>comment_body</code>). Hvor mange kommentarer er der?</li>
@@ -13221,11 +13221,35 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#216;VELSE-2:-Tokenization">&#216;VELSE 2: Tokenization<a class="anchor-link" href="#&#216;VELSE-2:-Tokenization">&#182;</a></h1><p>Prøv at undersøge tekstindholdet af et af opslagene i redditdata:</p>
+<h1 id="&#216;VELSE-2:-Brug-af-sprogmodel">&#216;VELSE 2: Brug af sprogmodel<a class="anchor-link" href="#&#216;VELSE-2:-Brug-af-sprogmodel">&#182;</a></h1><ol>
+<li><p>Udvælg en enkelt kommentar fra reddit datasættet. Kommentarteksten findes i kolonnen "comment_body" (fx <code>comment = reddit_df.loc[200, 'comment_body']</code>)</p>
+</li>
+<li><p>Analysér kommentaren med spaCy sprogmodellen (omdan kommentaren til et <code>doc</code> objekt). Husk at installér og indlæs sprogmodellen først:</p>
+</li>
+</ol>
 
-<pre><code>post = reddit_df.loc[503, 'post_selftext']</code></pre>
+<pre><code>import spacy
+
+!python -m spacy download da_core_news_sm
+nlp = spacy.load("da_core_news_sm")</code></pre>
 <ol>
-<li>Tokenize opslaget - enten med en funktion eller trin for trin</li>
+<li>Er der named entities i kommentaren? (<code>doc.ents</code>) I så fald hvilke?</li>
+</ol>
+<p><strong>Bonus</strong></p>
+<ul>
+<li>Lav en liste, der kun indeholder ord fra kommentaren med ordklassen "NOUN"</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#216;VELSE-3:-Meningsfulde-tokens-med-spaCy">&#216;VELSE 3: Meningsfulde tokens med spaCy<a class="anchor-link" href="#&#216;VELSE-3:-Meningsfulde-tokens-med-spaCy">&#182;</a></h1><p>Prøv at undersøge find frem til de meningsfulde tokens af et reddit opslag. Opslagsteksten findes i kolonnen "post_selftext" (fx <code>post = reddit_df.loc[503, 'post_selftext']</code>)</p>
+<ol>
+<li>Skriv en tokenizer funktion, der bruger <code>spaCy</code></li>
+<li>Tokenize opslaget med funktionen</li>
 <li>Lav en ordoptælling ved at konvertere jeres tokens til en pandas series og bruge <code>.value_counts()</code></li>
 </ol>
 
@@ -13235,42 +13259,16 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#216;VELSE-3:-Meningsfulde-tokens-med-stanza">&#216;VELSE 3: Meningsfulde tokens med stanza<a class="anchor-link" href="#&#216;VELSE-3:-Meningsfulde-tokens-med-stanza">&#182;</a></h1><p>Prøv at undersøge tekstindholdet af samme reddit opslag som før, men denne gang med brug af <code>stanza</code>:</p>
-
-<pre><code>post = reddit_df.loc[503, 'post_selftext']</code></pre>
+<h1 id="&#216;VELSE-4:-Tidy-text-data-(reddit-data)">&#216;VELSE 4: Tidy text data (reddit data)<a class="anchor-link" href="#&#216;VELSE-4:-Tidy-text-data-(reddit-data)">&#182;</a></h1><p>Du skal nu anvende din funktion fra før på alle <em>kommentarerne</em> i reddit datasættet (kolonnen <code>comment_body</code>)</p>
 <ol>
-<li>Skriv en tokenizer funktion, der bruger <code>stanza</code></li>
-<li>Tokenize opslaget med funktionen</li>
-<li>Lav igen en ordoptælling ved at konvertere jeres tokens til en pandas series og bruge <code>.value_counts()</code></li>
-</ol>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#216;VELSE-4:-Tidy-text-data-(reddit-data)">&#216;VELSE 4: Tidy text data (reddit data)<a class="anchor-link" href="#&#216;VELSE-4:-Tidy-text-data-(reddit-data)">&#182;</a></h1><p>Du skal nu anvende din funktion fra før på alle kommentarerne i reddit datasættet (kolonnen <code>comment_body</code>)</p>
-<ol>
-<li>Brug <code>.apply()</code> til at anvende din tokenizer funktion på hele reddit datasættet til at lave en tokens kolonne (det kan være en god ide lige at teste funktionen med en enkelt kommentar først)</li>
+<li>Brug <code>.apply()</code> til at anvende din tokenizer funktion på hele reddit datasættet til at lave en tokens kolonne (det kan være en god ide at teste funktionen med en enkelt kommentar først)</li>
 <li>Brug <code>.explode()</code> til at konvertere data til et tidy format</li>
 <li>Brug <code>.value_counts()</code> til at optælle tokens</li>
+</ol>
+<p><strong>Bonus</strong></p>
+<ul>
 <li>Undersøg, hvor mange gange coronavirus er nævnt (tænkt gerne synonymer med!)</li>
-</ol>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#216;VELSE-5:-Topic-models-i-Python-(reddit-data)">&#216;VELSE 5: Topic models i Python (reddit data)<a class="anchor-link" href="#&#216;VELSE-5:-Topic-models-i-Python-(reddit-data)">&#182;</a></h1><p>I skal nu lave en topic model for reddit kommentarerne.</p>
-<ol>
-<li>Dan et "gensim corpus" ud fra reddit kommentarerne (<code>comment_body</code>)</li>
-<li>Dan en topic model over kommentarerne (bestem selv antal topics)</li>
-<li>Inspicér de mest sandsynlige ord i hvert topic (<code>lda_model.show_topics(formatted=False)</code>)</li>
-<li>Hvad kan I bruge modellen til?</li>
-</ol>
+</ul>
 
 </div>
 </div>
