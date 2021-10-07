@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>02_overvejelser-visualisering slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>01_introduktion_eda-visualisering slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14385,7 +14385,57 @@ div.jp-OutputPrompt {
 <div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Eksplorativ-dataanalyse-og-visualisering">Eksplorativ dataanalyse og visualisering<a class="anchor-link" href="#Eksplorativ-dataanalyse-og-visualisering">&#182;</a></h1>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Hvad-er-&quot;eksplorativ-data-analyse&quot;-(EDA)?">Hvad er "eksplorativ data analyse" (EDA)?<a class="anchor-link" href="#Hvad-er-&quot;eksplorativ-data-analyse&quot;-(EDA)?">&#182;</a></h2><p><a href="https://r4ds.had.co.nz/exploratory-data-analysis.html#exploratory-data-analysis">Wickham &amp; Grolemund</a>:</p>
+<blockquote><p>EDA is an iterative cycle. You:</p>
+<ol>
+<li>Generate questions about your data.</li>
+<li>Search for answers by visualising, transforming, and modelling your data.</li>
+<li>Use what you learn to refine your questions and/or generate new questions.</li>
+</ol>
+</blockquote>
+<ul>
+<li>Udforskende, nysgerrigt, til dels uformelt</li>
+</ul>
+<blockquote><p>“Far better an approximate answer to the right question, which is often vague, than an exact answer to the wrong question, which can always be made precise.” - John Tukey</p>
+</blockquote>
+<ul>
+<li>Involverer både visualisering, datahåndtering/-transformation og modellering</li>
+</ul>
+<blockquote><p>"A good analyst will have that special blend of natural inquisitiveness and the sense to know what approaches (statistical or visual) to employ and when" - Andy Kirk</p>
+</blockquote>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Data-visualisering">Data visualisering<a class="anchor-link" href="#Data-visualisering">&#182;</a></h2><p><strong>Definition</strong>: "The representation and presentation of data to facilitate understanding" (Kirk 2016)</p>
+<ul>
+<li>Data må præsenteres i andre visuelle former for at udlede meningsfulde indsigter fra det</li>
+</ul>
+<h3 id="&quot;Marks&quot;-and-&quot;attributes&quot;">"Marks" and "attributes"<a class="anchor-link" href="#&quot;Marks&quot;-and-&quot;attributes&quot;">&#182;</a></h3><p>Der adskilles mellem to hovedkomponenter i en datavisualisering:</p>
+<ul>
+<li>Marks: Formene brugt til at repræsentere data (punkter, linjer, områder, søjler osv.)</li>
+<li>Attributes: Egenskaber ved formene (størrelse, farve, placering osv.)</li>
+</ul>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Overvejelser-om-data-visualisering">Overvejelser om data visualisering<a class="anchor-link" href="#Overvejelser-om-data-visualisering">&#182;</a></h1>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Tre-principper-for-godt-visualiseringsdesign-(Kirk-2016)">Tre principper for godt visualiseringsdesign (Kirk 2016)<a class="anchor-link" href="#Tre-principper-for-godt-visualiseringsdesign-(Kirk-2016)">&#182;</a></h2><p><strong>1. Good data visualisation is trustworthy</strong></p>
+<p><strong>2. Good data visualisation is accessible</strong></p>
+<p><strong>3. Good data visualisation is elegant</strong></p>
+
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14444,15 +14494,8 @@ div.jp-OutputPrompt {
 <p><strong>Opfattelse</strong>: Hvad viser visualiseringen? Hvad lægger man mærke til?</p>
 <p><strong>Fortolkning</strong>: Hvad betyder det? Har læseren nødvendig domæneviden til at vide, hvad det betyder?</p>
 <p><strong>Forståelse</strong>: Hvad konkluderer man ud fra visualiseringen?</p>
-<p>"To help <em>perceiving</em>, viewers need the context of scale. To help with <em>interpreting</em>, viewers need the context of subject, whether that is provided by the visualiser or the viewer themself" (Kirk 2016)</p>
-
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Tre-principper-for-godt-visualiseringsdesign-(Kirk-2016)">Tre principper for godt visualiseringsdesign (Kirk 2016)<a class="anchor-link" href="#Tre-principper-for-godt-visualiseringsdesign-(Kirk-2016)">&#182;</a></h2><p><strong>1. Good data visualisation is trustworthy</strong></p>
-<p><strong>2. Good data visualisation is accessible</strong></p>
-<p><strong>3. Good data visualisation is elegant</strong></p>
+<blockquote><p>"To help <em>perceiving</em>, viewers need the context of scale. To help with <em>interpreting</em>, viewers need the context of subject, whether that is provided by the visualiser or the viewer themself" (Kirk 2016)</p>
+</blockquote>
 
 </div>
 </div></section></section><section><section>
